@@ -1,5 +1,6 @@
 virtualenv venv # ambiente virtual python
 source ./venv/bin/activate # ativando ambiente virtual
+source ./venv/bin/deactivate # desativando ambiente virtual
 pip freeze > requirements.txt  # cria um arquivo que mostra o que está instalado
 pip install matplotlib # biblioteca para visualização de dados
 pip install numpy==1.23.5 # instalando uma biblioteca de uma versão  especifica

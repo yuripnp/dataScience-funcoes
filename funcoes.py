@@ -26,13 +26,21 @@ def soma(*numeros):
 # crie uma função que vai receber uma lista de notas de um aluno e retorna para saber se ele
 # foi aprovado ou reprovado
 
-def status_aluno(notas):
+def status_aluno(notas: list[0]) -> tuple[float, str]:
+    """
+    Função que recebe uma lista de notas e retorna a média e a situação do aluno.
+    :param notas: Lista de notas do aluno
+    """
+
+    
     media = sum(notas) / len(notas)
     if media >= 7:
-        return "Aprovado"
+        situacao = "Aprovado"
     else:
-        return "Reprovado"
+        situacao = "Reprovado"
+    return (media, situacao)
 
-print(status_aluno(notas))
+media, situacao = status_aluno(notas)
+print(f"Média: {media}, Situação: {situacao}")
 
 # criando uma função que recebe uma lista de notas e retorna a maior nota
