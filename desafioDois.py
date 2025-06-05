@@ -32,5 +32,3 @@ print(f"Múltiplos de 3 na lista: {multiplos}")
 lista_de_dez = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 lista_de_quadrados = list(map(lambda x: x**2, lista_de_dez))
 print(f"Lista de quadrados: {lista_de_quadrados}")
-
-#teste
