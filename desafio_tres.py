@@ -64,3 +64,12 @@ funcionarios = [('SP', 16), ('ES', 8), ('MG', 9), ('MG', 6), ('SP', 10), ('MG', 
                 ('ES',9), ('ES', 7), ('ES', 12), ('SP', 7), ('SP', 11), ('MG',8), ('ES',8), 
                 ('SP',9), ('RJ', 13), ('MG', 5), ('RJ', 9), ('SP', 12), ('MG', 10), ('SP', 7), 
                 ('ES', 14), ('SP', 10), ('MG', 12)]
+
+#funcionarios_por_estado = {estado: sum(funcionario[1] for funcionario in funcionarios if funcionario[0] == estado) for estado in set(estado for estado, _ in funcionarios)}  #10
+estados_unicos = set(funcionario[0] for funcionario in funcionarios)  # Extraindo estados únicos
+funcionarios_por_estado = {}
+for funcionario in funcionarios:
+    for estado in estados_unicos:
+        if funcionario[0] == estado:
+            funcionarios_por_estado[estado] = funcionarios_por_estado.get(estado, 0) + funcionario[1]
+print(funcionarios_por_estado)  #10
