@@ -79,8 +79,92 @@ tuplas_tres = juncao_de_listas(lista5, lista6)
 """
 
 # desafio 5
+
+"""
 gabarito = ['D', 'A', 'B', 'C', 'A']
+escolhas_possiveis = ['A', 'B', 'C', 'D']
 
 testes_sem_ex = [['D', 'A', 'B', 'C', 'A'], ['C', 'A', 'A', 'C', 'A'], ['D', 'B', 'A', 'C', 'A']]
 testes_com_ex = [['D', 'A', 'B', 'C', 'A'], ['C', 'A', 'A', 'E', 'A'], ['D', 'B', 'A', 'C', 'A']]
+
+def verificar_nota(nota: str, possibilidades: list) -> bool:
+    if nota not in possibilidades:
+        return False
+    else:
+        return True
+
+def analise_de_testes(testes: list):
+    pontuacoes = []
+    try:
+        for teste in testes:
+            nota = 0
+            for i in range(len(teste)):
+                valido = verificar_nota(teste[i],  escolhas_possiveis)
+                if(valido):
+                    if teste[i] == gabarito[i]:
+                        nota += 1
+                else:
+                    raise ValueError(f'a alternativa {teste[i]} não é uma opção')
+            pontuacoes.append(nota)
+    except Exception as e:
+        print(e)
+    else:
+        return pontuacoes
+    
+notas_sem_erro = analise_de_testes(testes_sem_ex)
+print(notas_sem_erro)
+notas_com_erro = analise_de_testes(testes_com_ex)
+"""
+
+# desafio 6
+"""
+lista_tratada = ['Python', 'é', 'uma', 'linguagem', 'de', 'programação', 'poderosa', 'versátil',
+                  'e', 'fácil', 'de', 'aprender', 'utilizada', 'em', 'diversos', 'campos', 'desde',
+                  'análise', 'de', 'dados', 'até', 'inteligência', 'artificial']
+
+lista_nao_tratada = ['Python', 'é', 'uma', 'linguagem', 'de', 'programação', 'poderosa,', 'versátil',
+                  'e', 'fácil,', 'de', 'aprender', 'utilizada', 'em', 'diversos', 'campos,', 'desde',
+                  'análise', 'de', 'dados', 'até', 'inteligência', 'artificial!']
+
+
+def verificar_caracter(lista_de_palavras: list):
+    try:
+        for palavra in lista_de_palavras:
+            if ("," in palavra) or (";" in palavra) or ("!" in palavra) or ("?" in palavra):
+                raise ValueError(f"Palavra contem caracter especial não autorizado {palavra}")
+    except Exception as e:
+        print(e)
+    else:
+        print(palavra)
+        
+
+verificacao_sem_error = verificar_caracter(lista_tratada)
+verificacao_com_error = verificar_caracter(lista_nao_tratada)
+"""
+
+# desafio 7
+"""
+pressoes = [100, 120, 140, 160, 180]
+temperaturas = [20, 25, 30, 35, 40]
+
+pressoes_divide_por_zero = [60, 120, 140, 160, 180]
+temperaturas_divide_por_zero = [0, 25, 30, 35, 40]
+
+pressoes_tamanho_diferente = [100, 120, 140, 160]
+temperaturas_tamanho_diferente = [20, 25, 30, 35, 40]
+
+def validacao_listas(pressao, temperatura):
+    try:
+        if len(pressao) != len(temperatura):
+            raise ValueError(f"listas imcompativeis")
+        resultado = [round(pressao[i]/temperatura[i]) for i in range(len(pressao))]
+    except ZeroDivisionError as e:
+        print(f"Não pode dividir por zero! {e}")
+    else:
+        return resultado
+
+#print(validacao_listas(pressoes, temperaturas))
+#print(validacao_listas(pressoes_divide_por_zero, temperaturas_divide_por_zero))
+print(validacao_listas(pressoes_tamanho_diferente, temperaturas_tamanho_diferente))
+"""
 
